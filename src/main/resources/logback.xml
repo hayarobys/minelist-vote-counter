@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property resource="config/remotelog.properties" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%date{mm분ss초}] %message%n%exception</pattern>
+		</layout>
+	</appender>
+
+	<appender name="CORE_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./minelist-vote-counter.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>cash-cms.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<!-- 30일 지난 파일은 삭제한다. -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[%date{yyyy-MM-dd HH:mm:ss.SSS}] %-5level %message%n%exception</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- RULES for logging DEBUG < INFO < WARN < ERROR < FATAL.-->
+	
+	<!-- Root Logger -->
+	<root>
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="CORE_LOG_FILE"/>
+	</root>
+	
+</configuration>
