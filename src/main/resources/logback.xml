@@ -9,9 +9,9 @@
 	</appender>
 
 	<appender name="CORE_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>./minelist-vote-counter.log</file>
+		<file>minelist-vote-counter.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>cash-cms.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<fileNamePattern>minelist-vote-counter.log.%d{yyyy-MM-dd}</fileNamePattern>
 			<!-- 30일 지난 파일은 삭제한다. -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
